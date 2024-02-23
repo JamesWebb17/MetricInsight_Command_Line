@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<script>
+    // Récupérer le contexte du canvas
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    // Fonction pour lire et traiter le fichier CSV
+    function readCSV(file) {
+        Papa.parse(file, {
+            header: true,
+            dynamicTyping: true,
+            complete: function (results) {
+                // Les données CSV sont dans results.data
+                var data = results.data;
+
+                // Extraire le temps et la data des colonnes
+                var labels = data.map(function (row) {
+                    return row.temps; // Remplacez 'temps' par le nom réel de votre colonne de temps
+                });
+
+                var values = data.map(function (row) {
+                    return row.data; // Remplacez 'data' par le nom réel de votre colonne de données
+                });
+
+                // Configuration du graphique
+                var options = {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                };
+
+                // Créer un graphique à ligne avec les données du CSV
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'My Dataset',
+                            data: values,
+                            fill: false,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: options
+                });
+            }
+        });
+    }
+
+    // Charger le fichier CSV (remplacez 'test.csv' par le chemin de votre fichier)
+    readCSV('./test_CPU.csv');
+</script>
+</body>
+
+</html>

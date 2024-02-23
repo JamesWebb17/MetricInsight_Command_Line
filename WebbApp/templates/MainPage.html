@@ -1,0 +1,74 @@
+<!-- templates/MainPage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/checkbox.css')}}">
+
+    <title>MetricInsight</title>
+    <!-- Liens vers les fichiers CSS ou autres ressources statiques ici -->
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+              <a class="navbar-brand" href="/">Mon Site</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Accueil</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/configuration">Configuration</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/help">Help</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">À propos</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Contact</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+    </header>
+    <!-- Contenu principal -->
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4">MetricInsight - Your vision at a glance</h1>
+            <p class="lead"> Discover a new level of clarity in performance monitoring with MetricInsight. Our advanced metrics collection and analysis tool provides in-depth insight into the health and performance of your systems.</p>
+            <hr class="my-4">
+            <p>✨ Powerful metrics: Get accurate, meaningful data with our wide range of metrics, from CPU performance to memory consumption and beyond.</p>
+            <p>🚀 Instant insight: Turn raw data into actionable information. MetricInsight provides immediate insights to optimize the efficiency of your infrastructure.</p>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+    <form action="/start_program" method="post">
+        <center>
+            <button type="submit" class="btn btn-primary">Start Program</button>
+        </center>
+    </form>
+</div>
+
+    <footer>
+        <!-- Contenu de votre pied de page -->
+        <p>&copy; 2023 Mon Site</p>
+    </footer>
+
+    <!-- Scripts JavaScript ou autres ressources statiques ici -->
+</body>
+</html>
+
